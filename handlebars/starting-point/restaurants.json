@@ -1,7 +1,7 @@
 [
     {
         "name": "Bayroot",
-        "image": "https://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/England/Brighton/brighton-restaurants-hotel-du-vin-bistro.jpg",
+        "image": "/img/bayroot",
         "menus": [
             {
                 "title": "Grill",
