@@ -1,20 +1,19 @@
 
 
 <div>
-		<h2>Single Restaurant: {{restaurant.name}}</h2>
-		<img class="item-img" src="{{restaurant.image}}"/>	
-
-		<br>
-		<br>
-		
-		<div class='button-list'>
-			<button id='details-btn'>Show Other Restaurants</button>
-			<button id='menu-btn'>Show Menu</button>
-			<button><a class="main-button" href="/restaurants">Go Back to Restaurant List</a></button>
-			<button id="delete-btn">Delete</button>
-		</div>
-		<br>
-		<br>
+	<h2>Single Restaurant: {{restaurant.name}}</h2>
+	<img class="item-img" src="{{restaurant.image}}"/>
+	<h3>Likes: <span id="like-counter">{{restaurant.likes}}</span></h3>
+	<br>
+	<br>
+	<div class='button-list'>
+		<button id='menu-btn'>Show Menu</button>
+		<button id="delete-btn">Delete</button>
+		<button id="like-btn">Like</button>	
+		<button id="goBack-btn"><a class="main-button" href="/restaurants">Go Back to Restaurant List</a></button>
+	</div>
+	<br>
+	<br>
 	<div id='menu'></div>
 
 	<ul id='list'></ul>

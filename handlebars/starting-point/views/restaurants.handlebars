@@ -9,8 +9,12 @@
 		<article class="card">
 			<a href="/restaurants/{{id}}"><h2>{{name}}</h2></a>
 			<img class="item-img" src="{{image}}"/>
+			<br> 
+			<br>
+			<button id='btn-{{id}}' class="delete-btn" onclick="deleteRestaurant({{id}})">Delete</button>
+			<br>
 		</article>
 	{{/each}}
-    
-
 </section>
+
+<script src="/script.js"></script> 

@@ -8,8 +8,8 @@ body {
     justify-content: center;
 }
 img{
-    width: 1200px;
-    height: 800px;
+    width: 800px;
+    height: 600px;
 }
 h1{
     color:yellowgreen;
@@ -62,5 +62,10 @@ button{
 #delete-btn{
     margin-left: 1cm;
 }
-
+#like-btn{
+    margin-left: 1cm; 
+}
+#goBack-btn{
+    margin-left: 1cm; 
+}
 

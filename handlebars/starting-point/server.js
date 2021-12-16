@@ -50,7 +50,6 @@ const seedDb = async () => {
 // seedDb();
 
 
-
 const restaurantChecks = [
     check('name').not().isEmpty().trim().escape(),
     check('image').isURL(),
@@ -85,8 +84,6 @@ app.get('/menu/:id', async (req, res) => {
     res.json(restaurant)
 });
 
-
-
 //New Restaurant go here: 
 
 app.get('/new-restaurant',async(req,res)=>{
@@ -112,10 +109,19 @@ app.delete('/restaurants/:id', async (req,res)=>{
     const deletedRestaurant = await Restaurant.destroy({
         where: {id:req.params.id}
     })
-    const restaurants = await Restaurant.findAll();
-    res.render('restaurants', {restaurants})
+    
+    res.render(deletedRestaurant ? 'Deleted' : 'Deletion Failed')
+
 })
 
+//update restaurants by id
+app.put('/restaurants/:id', async (req,res) => {
+    let updatedRestaurants = await Restaurant.update(req.body, {
+        where: {id: req.params.id}
+    })
+    const Restaurants = await Restaurant.findByPk(req.params.id)
+    res.render('restaurant', {Restaurant})
+})
 
 
 
@@ -128,30 +134,23 @@ app.delete('/restaurants/:id', async (req,res)=>{
 //     res.sendStatus(201);
 // });
 
-// app.delete('/restaurants/:id', async (req, res) => {
-//     await Restaurant.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     });
-//     res.sendStatus(200);
-// });
 
-// app.put('/restaurants/:id', restaurantChecks, async (req, res) => {
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       return res.status(400).json({ errors: errors.array() });
-//     }
-//     const restaurant = await Restaurant.findByPk(req.params.id);
-//     await restaurant.update(req.body);
-//     res.sendStatus(200);
-// });
+
 
 // app.patch('/restaurants/:id', async (req, res) => {
 //     const restaurant = await Restaurant.findByPk(req.params.id);
 //     await restaurant.update(req.body);
 //     res.sendStatus(200);
 // });
+
+// app.put('/restaurants/:id', async (req,res) => {
+//     let updatedRestaurant = await Restaurant.update(req.body, {
+//         where: {id: req.params.id}
+//     })
+//     const restaurant = await Restaurant.findByPk(req.params.id)
+//     res.render('restaurant', {restaurant})
+// })
+
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
